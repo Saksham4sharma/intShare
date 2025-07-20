@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Search from '@/components/Search';
+import ScrollToSearchButton from '@/components/ScrollToSearchButton';
 import dbConnect from '@/lib/dbConnect';
 import Experience from '@/models/Experience';
 import Company from '@/models/Company';
@@ -137,7 +138,7 @@ export default async function HomePage({ searchParams }) {
       </div>
 
       {/* Experiences Section */}
-      <div className="bg-gray-900/50 min-h-screen">
+      <div id="results-section" className="bg-gray-900/50 min-h-screen">
         <div className="max-w-7xl mx-auto px-6 py-16">
           {experiences.length > 0 ? (
             <>
@@ -259,10 +260,15 @@ export default async function HomePage({ searchParams }) {
                   </h3>
                   <p className="text-gray-400 leading-relaxed text-lg">
                     {query 
-                      ? "Try searching for a different company or be the first to share an experience for this company."
+                      ? "Sorry, we could not find any interview experiences for this company yet. You could be the first to share your experience and help others prepare for their interviews!"
                       : "Be the first to share your interview experience and help thousands of job seekers in their career journey."
                     }
                   </p>
+                  {query && (
+                    <div className="mt-6">
+                      <ScrollToSearchButton />
+                    </div>
+                  )}
                 </div>
                 
                 <Link 

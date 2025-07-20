@@ -15,7 +15,7 @@ export default function Search({ placeholder }) {
     } else {
       params.delete('query');
     }
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
   }, 300);
 
   return (
