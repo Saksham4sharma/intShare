@@ -66,7 +66,7 @@ export default function CreateExperience() {
           Share Your Interview Experience
         </h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Help others by sharing your real interview experience. Your insights could make the difference in someone's career journey.
+          Help others by sharing your real interview experience. Your insights could make the difference in someone&apos;s career journey.
         </p>
       </div>
 

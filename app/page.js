@@ -45,7 +45,7 @@ export default async function HomePage({ searchParams }) {
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-light">
-                Discover authentic insights from candidates who've been there. Get real stories, 
+                Discover authentic insights from candidates who&apos;ve been there. Get real stories, 
                 <span className="font-medium text-blue-300"> salary data</span>, and 
                 <span className="font-medium text-purple-300"> preparation tips</span> from your dream companies.
               </p>
