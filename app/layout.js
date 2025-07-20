@@ -7,6 +7,14 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'IntShare - Interview Experiences Platform',
   description: 'Share and discover real interview experiences from top companies. Get insights, tips, and prepare better for your next interview.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }) {
