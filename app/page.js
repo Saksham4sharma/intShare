@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Search from '@/components/Search';
 import ScrollToSearchButton from '@/components/ScrollToSearchButton';
+import ReadMore from '@/components/ReadMore';
 import dbConnect from '@/lib/dbConnect';
 import Experience from '@/models/Experience';
 import Company from '@/models/Company';
@@ -164,7 +165,7 @@ export default async function HomePage({ searchParams }) {
                 )}
               </div>
               
-              <div className="grid gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {experiences.map((exp, index) => (
                   <article 
                     key={exp._id} 
@@ -172,26 +173,26 @@ export default async function HomePage({ searchParams }) {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     {/* Company Header */}
-                    <div className="bg-gradient-to-r from-gray-800/80 to-slate-800/80 px-8 py-6 border-b border-gray-700">
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6">
-                        <div className="flex-1 space-y-4">
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                              <span className="text-white font-bold text-lg">
+                    <div className="bg-gradient-to-r from-gray-800/80 to-slate-800/80 px-6 py-4 border-b border-gray-700">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+                        <div className="flex-1 space-y-2">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                              <span className="text-white font-bold text-base">
                                 {toTitleCase(exp.company.name).charAt(0)}
                               </span>
                             </div>
                             <div>
-                              <h3 className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                              <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
                                 {toTitleCase(exp.company.name)}
                               </h3>
                               <div className="flex items-center gap-2 mt-1">
-                                <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-semibold border border-blue-500/30">
+                                <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs font-semibold border border-blue-500/30">
                                   {exp.role}
                                 </span>
                                 <span className="text-gray-500">•</span>
-                                <span className="text-gray-400 text-sm flex items-center gap-1">
-                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <span className="text-gray-400 text-xs flex items-center gap-1">
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                   </svg>
                                   {new Date(exp.createdAt).toLocaleDateString('en-US', { 
@@ -206,35 +207,33 @@ export default async function HomePage({ searchParams }) {
                         </div>
                         
                         {exp.ctc > 0 && (
-                          <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-2 border-green-500/30 rounded-2xl p-6 text-center shadow-lg">
-                            <div className="flex items-center justify-center gap-2 mb-2">
-                              <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border-2 border-green-500/30 rounded-xl p-4 text-center shadow-lg">
+                            <div className="flex items-center justify-center gap-1 mb-1">
+                              <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                               </svg>
-                              <span className="text-sm font-medium text-green-300">Package Offered</span>
+                              <span className="text-xs font-medium text-green-300">Package Offered</span>
                             </div>
-                            <p className="text-3xl font-black text-green-300">₹{exp.ctc}</p>
-                            <p className="text-sm text-green-400 font-medium">LPA</p>
+                            <p className="text-2xl font-black text-green-300">₹{exp.ctc}</p>
+                            <p className="text-xs text-green-400 font-medium">LPA</p>
                           </div>
                         )}
                       </div>
                     </div>
                     
                     {/* Experience Content */}
-                    <div className="p-8">
-                      <div className="bg-gradient-to-r from-gray-800/50 to-slate-800/50 rounded-2xl p-6 border border-gray-700">
-                        <h4 className="font-bold text-white mb-4 flex items-center gap-3 text-lg">
-                          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="p-5">
+                      <div className="bg-gradient-to-r from-gray-800/50 to-slate-800/50 rounded-xl p-4 border border-gray-700">
+                        <h4 className="font-bold text-white mb-3 flex items-center gap-2 text-base">
+                          <div className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">
+                            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                             </svg>
                           </div>
                           Interview Experience & Tips
                         </h4>
                         <div className="prose prose-gray max-w-none">
-                          <p className="text-gray-300 leading-relaxed whitespace-pre-wrap text-base">
-                            {exp.experience}
-                          </p>
+                          <ReadMore text={exp.experience} maxLength={400} />
                         </div>
                       </div>
                     </div>
