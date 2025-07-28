@@ -55,7 +55,7 @@ export default function Header() {
               <svg className="w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
-              <span className="text-sm sm:text-base">Share</span>
+              <span className="text-sm sm:text-base">Share Experience</span>
             </Link>
           </nav>
         </div>
