@@ -16,7 +16,7 @@ export default function Search({ placeholder }) {
       params.delete('query');
     }
     replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, 300);
+  }, 100);
 
   return (
     <div className="relative w-full group">
